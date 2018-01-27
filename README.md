@@ -22,16 +22,20 @@ pip3 selenium
 ```
 
 5. Install the chromedriver driver
+
 chromedriver serves as a bridge between chromium-browser and Selenium WebDriver
 For Raspberry PI 3 you need a chromedriver version which is compatible with your chromium-browser.
-For instance, on Nov-17 the very latest raspbian version, named 2017-11-29-raspbian-stretch comes with chromium-browser version: 
-Version 60.0.3112.89 (Developer Build) Built on Ubuntu 14.04, running on Raspbian 9.3 (32-bit)
-To see it, simply launch chromium-browser from the graphical interface 
+For instance, the very latest raspbian version at this time (Jan-18) is "2017-11-29-raspbian-stretch" and it comes with chromium-browser version: Version 60.0.3112.89 (Developer Build) Built on Ubuntu 14.04, running on Raspbian 9.3 (32-bit)
+To know your specific chromium-browser version, simply:
+1. launch chromium-browser from the graphical interface 
+2. click on the menu icon
+3. click on About Chromium as you see here:
+[![](https://github.com/guido57/autochromium/blob/master/chromium-browser-v.PNG)
 
-
-
-e right version of Download the right armhf (yes, Raspberry PI 3 is based on armhf CPU architecture) version of chromedriver.
-
+or from the shell:
+```
+chromium-browser --version
+```
 
 
 [![](https://github.com/guido57/MyThermostat/blob/master/off.PNG)](https://github.com/guido57/MyThermostat/blob/master/off.PNG)

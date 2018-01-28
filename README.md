@@ -16,12 +16,15 @@ In this project I'll use selenium for python to show how to automatically activa
    - Jessie "2016-11-25-raspbian-jessie.img"
 3. (Optional, if you don't have screen, keyboard and mouse) Prepare the SD you just created for headless operations following these instructions. [
 Raspbian Stretch Headless Setup Procedure](https://www.raspberrypi.org/forums/viewtopic.php?t=191252) 
-4. Install the python selenium module with the command
+
+### Install Software
+
+1. Install the python selenium module with the command
 ```
 pip3 selenium
 ```
 
-6. Get your chromium-browser version
+2. Get your chromium-browser version
 
 chromedriver serves as a bridge between chromium-browser and Selenium WebDriver.
 
@@ -40,7 +43,25 @@ or from the shell:
 chromium-browser --version
 ```
 
-6. Get the the right chromedriver version
-Now go to the Canonical Group web site, which develop an mantains Ubuntu and its armhf chromium-browser version. 
-[https://launchpad.net/ubuntu/trusty/armhf/chromium-browser](https://launchpad.net/ubuntu/trusty/armhf/chromium-browser)
-Look for the chromium-browser version whose number version is closest to yours.
+3. Get your chromedriver version and check if it works.
+
+- Now go to the Canonical Group web site, which develops an mantains Ubuntu and its armhf chromium-browser version. 
+[https://launchpad.net/ubuntu/trusty/armhf/chromium-chromedriver](https://launchpad.net/ubuntu/trusty/armhf/chromium-chromedriver)
+
+- Look for the chromedriver version whose number version is closest to the one of your chromium-browser and download it as a deb package.
+For example, I have chromium-browser Version 60.0.3112.89, so the closest at that page is 60.0.3112.113. So I downloaded 
+chromium-chromedriver_60.0.3112.113-0ubuntu0.14.04.1194_armhf.deb 
+on my Raspberry PI.
+
+- Then I installed it double clicking on the icon.
+
+- Then I asked the version of the chromedriver with the following command:
+```
+/usr/lib/chromium-browser/chromedriver -v
+```
+but instead of obtaining the version number I got the following error:
+```
+/usr/lib/chromium-browser/chromedriver: error while loading shared libraries: libbase.so: cannot open shared object file: No such file or directory
+```
+which means that a shared library which chromedriver expected to be present in the chromium-browser installation is not present!
+

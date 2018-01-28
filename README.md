@@ -66,9 +66,10 @@ The most recent:
 is OK. But I succcessfully tested also:
 - chromium-chromedriver_62.0.3202.94-0ubuntu0.14.04.1215_armhf.deb
 - chromium-chromedriver_61.0.3163.100-0ubuntu0.14.04.1202_armhf.deb
-while this one:
 
+while this one:
 - chromium-chromedriver_60.0.3112.113-0ubuntu0.14.04.1194_armhf.deb 
+
 gave me the following error:
 ```
 /usr/lib/chromium-browser/chromedriver: error while loading shared libraries: libbase.so: cannot open shared object file: No such file or directory

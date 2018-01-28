@@ -45,20 +45,32 @@ chromium-browser --version
 
 3. Get your chromedriver version and check if it works.
 
-- Now go to the Canonical Group web site, which develops an mantains Ubuntu and its armhf chromium-browser version. 
+3.1 Now go to the Canonical Group web site, which develops an mantains Ubuntu and its armhf chromium-browser version. 
 [https://launchpad.net/ubuntu/trusty/armhf/chromium-chromedriver](https://launchpad.net/ubuntu/trusty/armhf/chromium-chromedriver)
 
-- Look for the chromedriver version whose number version is closest to the one of your chromium-browser and download it as a deb package.
-For example, I have chromium-browser Version 60.0.3112.89, so the closest at that page is 60.0.3112.113. So I downloaded 
-chromium-chromedriver_60.0.3112.113-0ubuntu0.14.04.1194_armhf.deb 
-on my Raspberry PI.
-
-- Then I installed it double clicking on the icon.
-
-- Then I asked the version of the chromedriver with the following command:
+- Look for the most recent version and download it as a deb package.
+- Then intall it double clicking on its icon.
+- Then to check if everything is OK, ask the version of the chromedriver with the following command:
 ```
 /usr/lib/chromium-browser/chromedriver -v
 ```
+
+For example, I found this:
+- chromium-chromedriver_63.0.3239.132-0ubuntu0.14.04.1_armhf.deb
+but I succcessfully tested also:
+- chromium-chromedriver_62.0.3202.94-0ubuntu0.14.04.1215_armhf.deb
+- chromium-chromedriver_61.0.3163.100-0ubuntu0.14.04.1202_armhf.deb
+while this:
+- chromium-chromedriver_60.0.3112.113-0ubuntu0.14.04.1194_armhf.deb 
+gave me the following error:
+
+ave chromium-browser Version 60.0.3112.89, so the closest at that page is 60.0.3112.113. So I downloaded 
+- chromium-chromedriver_63.0.3239.132-0ubuntu0.14.04.1_armhf.deb
+but I succcessfully tested also:
+- chromium-chromedriver_62.0.3202.94-0ubuntu0.14.04.1215_armhf.deb
+- on my Raspchromium-chromedriver_61.0.3163.100-0ubuntu0.14.04.1202_armhf.deb
+berry PI.
+
 but instead of obtaining the version number I got the following error:
 ```
 /usr/lib/chromium-browser/chromedriver: error while loading shared libraries: libbase.so: cannot open shared object file: No such file or directory

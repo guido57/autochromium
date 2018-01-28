@@ -45,7 +45,7 @@ chromium-browser --version
 
 3. Get your chromedriver version and check if it works.
 
-3.1 Now go to the Canonical Group web site, which develops an mantains Ubuntu and its armhf chromium-browser version. 
+- Go to the Canonical Group web site, which develops and mantains Ubuntu and its armhf chromium-browser version. 
 [https://launchpad.net/ubuntu/trusty/armhf/chromium-chromedriver](https://launchpad.net/ubuntu/trusty/armhf/chromium-chromedriver)
 
 - Look for the most recent version and download it as a deb package.
@@ -54,26 +54,26 @@ chromium-browser --version
 ```
 /usr/lib/chromium-browser/chromedriver -v
 ```
+A correct answer could be:
+```
+/usr/lib/chromium-browser/chromedriver -v
+ChromeDriver 2.33
+```
 
-For example, I found this:
+The most recent:
 - chromium-chromedriver_63.0.3239.132-0ubuntu0.14.04.1_armhf.deb
-but I succcessfully tested also:
+
+is OK. But I succcessfully tested also:
 - chromium-chromedriver_62.0.3202.94-0ubuntu0.14.04.1215_armhf.deb
 - chromium-chromedriver_61.0.3163.100-0ubuntu0.14.04.1202_armhf.deb
-while this:
+while this one:
+
 - chromium-chromedriver_60.0.3112.113-0ubuntu0.14.04.1194_armhf.deb 
 gave me the following error:
-
-ave chromium-browser Version 60.0.3112.89, so the closest at that page is 60.0.3112.113. So I downloaded 
-- chromium-chromedriver_63.0.3239.132-0ubuntu0.14.04.1_armhf.deb
-but I succcessfully tested also:
-- chromium-chromedriver_62.0.3202.94-0ubuntu0.14.04.1215_armhf.deb
-- on my Raspchromium-chromedriver_61.0.3163.100-0ubuntu0.14.04.1202_armhf.deb
-berry PI.
-
-but instead of obtaining the version number I got the following error:
 ```
 /usr/lib/chromium-browser/chromedriver: error while loading shared libraries: libbase.so: cannot open shared object file: No such file or directory
 ```
-which means that a shared library which chromedriver expected to be present in the chromium-browser installation is not present!
+that means that a shared library (libbase.so) which chromedriver expected to be present in the chromium-browser installation is not present!
+
+
 

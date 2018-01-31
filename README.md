@@ -7,6 +7,18 @@ The chromium browser version for Raspberry PI is very versatile but if you want 
 
 In this project I'll use selenium for python to show how to automatically activate the voice search in the google search page.
 
+### Collect Hardware
+- Rapberry PI 3 Model B
+- USB microphone
+- amplified speaker
+- HDMI monitor or TFT LCD 3.5" screen
+
+### Collect Hardware
+- Rapberry PI 3 Model B
+- USB microphone
+- amplified speaker
+- HDMI monitor or TFT LCD 3.5" screen
+
 ### Prepare your Raspberry
 0. I used a [Raspberry PI 3 Model B Scheda madre CPU 1.2 GHz Quad Core, 1 GB RAM](https://www.amazon.it/gp/product/B01CD5VC92/ref=oh_aui_search_detailpage?ie=UTF8&psc=1) bought at Amazon
 1. Start from a clean sd: I tested 8M and 32M SD Samsung cards.
@@ -76,5 +88,10 @@ gave me the following error:
 ```
 that means that a shared library (libbase.so) which chromedriver expected to be present in the chromium-browser installation is not present!
 
+
+### Set speaker and microphone
+In my case I had:
+- an audio amplified speaker connected to the 3.5mm jack
+- an USB microphone like this
 
 

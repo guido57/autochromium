@@ -89,10 +89,10 @@ that means that a shared library (libbase.so) which chromedriver expected to be 
 ```
 aplay -l
 ```
-I got card 0 and device 0:
+In my case I got card 0 and device 0 as you can see here:
 ```
 **** List of PLAYBACK Hardware Devices ****
-card **0**: ALSA [bcm2835 ALSA], device **0**: bcm2835 ALSA [**bcm2835 ALSA**]
+card 0: ALSA [bcm2835 ALSA], device 0: bcm2835 ALSA [bcm2835 ALSA]
   Subdevices: 8/8
   Subdevice #0: subdevice #0
   Subdevice #1: subdevice #1
@@ -111,25 +111,27 @@ card 0: ALSA [bcm2835 ALSA], device 1: bcm2835 ALSA [bcm2835 IEC958/HDMI]
 ```
 arecord -l
 ```
-I got card 1 and device 0:
+I got card 1 and device 0 as you can see here:
 ```
 **** List of CAPTURE Hardware Devices ****
-card **1**: Device [USB PnP Sound Device], device **0**: USB Audio [USB Audio]
+card 1: Device [USB PnP Sound Device], device 0: USB Audio [USB Audio]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 ```
 
-5. create or modify /home/pi/.asoundrc like the following:
+5. Create or modify /home/pi/.asoundrc, setting card and device of the playback and capture devices.
+Hence, in may case, playback: 0,0  and  capture 1,0
 ```
-pcm.!default```	type asym
-	playbak.pcm {```type plug
+pcm.!default{
+	type asym
+	playback.pcm {
+		type plug
 		slave.pcm "hw:0,0"
 	}
 	capture.pcm {
 		type plug
 		slave.pcm "hw:1,0"
 	}
-
 }
 
 ctl.!default {

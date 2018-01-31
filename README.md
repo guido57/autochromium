@@ -8,14 +8,13 @@ The chromium browser version for Raspberry PI is very versatile but if you want 
 In this project I'll use selenium for python to show how to automatically activate the voice search in the google search page.
 
 ### Collect Hardware
-- Rapberry PI 3 Model B
-- USB microphone
-- amplified speaker
-- HDMI monitor or TFT LCD 3.5" screen
+1. [Raspberry PI 3 Model B Scheda madre CPU 1.2 GHz Quad Core, 1 GB RAM](https://www.amazon.it/gp/product/B01CD5VC92/ref=oh_aui_search_detailpage?ie=UTF8&psc=1) bought at Amazon
+2. USB microphone [I bought this on Amazon](https://www.amazon.it/Microfono-Piccolo-desktop-Discorso-registrazione/dp/B00XU1GHO4/ref=sr_1_5?s=electronics&ie=UTF8&qid=1517425711&sr=1-5&keywords=microfono+usb)
+3. amplified speaker
+4. (optional) HDMI monitor or TFT LCD 3.5" screen
 
 ### Collect Hardware
 - Rapberry PI 3 Model B
-- USB microphone
 - amplified speaker
 - HDMI monitor or TFT LCD 3.5" screen
 

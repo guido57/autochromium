@@ -14,7 +14,6 @@ In this project I'll use selenium for python to show how to automatically activa
 4. (optional) HDMI monitor or TFT LCD 3.5" screen
 
 ### Prepare your Raspberry
-0. I used a [Raspberry PI 3 Model B Scheda madre CPU 1.2 GHz Quad Core, 1 GB RAM](https://www.amazon.it/gp/product/B01CD5VC92/ref=oh_aui_search_detailpage?ie=UTF8&psc=1) bought at Amazon
 1. Start from a clean sd: I tested 8M and 32M SD Samsung cards.
 2. Install "Raspian Jessie with Desktop" or "Raspbian Stretch with Desktop", I tested:
    - Stretch "2017-11-29-raspbian-stretch.img" downloaded and with "installation guide" at [Download Raspbian Stretch](https://www.raspberrypi.org/downloads/raspbian/)
@@ -84,8 +83,60 @@ that means that a shared library (libbase.so) which chromedriver expected to be 
 
 
 ### Set speaker and microphone
-In my case I had:
-- an audio amplified speaker connected to the 3.5mm jack
-- an USB microphone like this
+1. Simply connect any audio amplified speaker to the 3.5mm audio output jack of your Raspberry
+2. Simply insert your USB microphone to any USB socket of your Raspberry
+3. Determine card and device of your "bcm2835 ALSA" integrated audio which serves the 3.5mm jack with:
+```
+aplay -l
+'''
+I got card 0 and device 0:
+'''
+**** List of PLAYBACK Hardware Devices ****
+card **0**: ALSA [bcm2835 ALSA], device **0**: bcm2835 ALSA [**bcm2835 ALSA**]
+  Subdevices: 8/8
+  Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
+  Subdevice #4: subdevice #4
+  Subdevice #5: subdevice #5
+  Subdevice #6: subdevice #6
+  Subdevice #7: subdevice #7
+card 0: ALSA [bcm2835 ALSA], device 1: bcm2835 ALSA [bcm2835 IEC958/HDMI]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+'''
 
+4. Determine card and device of your USB Audio capture device (microphone):
+```
+arecord -l
+'''
+I got card 0 and device 0:
+'''
+**** List of CAPTURE Hardware Devices ****
+card **1**: Device [USB PnP Sound Device], device **0**: USB Audio [USB Audio]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+'''
+
+5. create or modify /home/pi/.asoundrc like the following:
+```
+pcm.!default {
+	type asym
+	playback.pcm {
+		type plug
+		slave.pcm "hw:0,0"
+	}
+	capture.pcm {
+		type plug
+		slave.pcm "hw:1,0"
+	}
+
+}
+
+ctl.!default {
+	type hw
+	card 0
+}
+```
 

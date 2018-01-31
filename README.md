@@ -88,9 +88,9 @@ that means that a shared library (libbase.so) which chromedriver expected to be 
 3. Determine card and device of your "bcm2835 ALSA" integrated audio which serves the 3.5mm jack with:
 ```
 aplay -l
-'''
+```
 I got card 0 and device 0:
-'''
+```
 **** List of PLAYBACK Hardware Devices ****
 card **0**: ALSA [bcm2835 ALSA], device **0**: bcm2835 ALSA [**bcm2835 ALSA**]
   Subdevices: 8/8
@@ -105,26 +105,24 @@ card **0**: ALSA [bcm2835 ALSA], device **0**: bcm2835 ALSA [**bcm2835 ALSA**]
 card 0: ALSA [bcm2835 ALSA], device 1: bcm2835 ALSA [bcm2835 IEC958/HDMI]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
-'''
+```
 
 4. Determine card and device of your USB Audio capture device (microphone):
 ```
 arecord -l
-'''
-I got card 0 and device 0:
-'''
+```
+I got card 1 and device 0:
+```
 **** List of CAPTURE Hardware Devices ****
 card **1**: Device [USB PnP Sound Device], device **0**: USB Audio [USB Audio]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
-'''
+```
 
 5. create or modify /home/pi/.asoundrc like the following:
 ```
-pcm.!default {
-	type asym
-	playback.pcm {
-		type plug
+pcm.!default```	type asym
+	playbak.pcm {```type plug
 		slave.pcm "hw:0,0"
 	}
 	capture.pcm {
@@ -136,7 +134,7 @@ pcm.!default {
 
 ctl.!default {
 	type hw
-	card 0
+	ard 0
 }
 ```
 
